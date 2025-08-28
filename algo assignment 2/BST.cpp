@@ -1,7 +1,9 @@
+#include <cstddef>
 #include <iostream>
 #include <fstream>
 #include <algorithm>
 #include "BST.h"
+#include "BTNode.h"
 
 
 using namespace std;
@@ -258,9 +260,119 @@ void BST::case3(BTNode *cur) {
 	free(is);
 }
 
-bool BST::display() {
+bool BST::display(int order,int source){
+	switch(order){
+		case 1:
+		switch(source){
+			case 1:
+			inOrderPrint();
+			break;
+
+			case 2:
+			reverseInorderPrint();
+			break;
+		}
+		case 2:
+		switch(source){
+			case 1:
+			InorderOutfile();
+			break;
+			case 2:
+			reverseInorderOutfile();
+			
+			break;
+		}
+
+	}
+}
+
+
+void BST::reverseInorderPrint(){
+	if(root == NULL) return;
+	reverseInorderPrint2(root);
+	return;
+
 
 }
+void BST::reverseInorderPrint2(BTNode *cur){
+	if(cur == NULL) return;
+	reverseInorderPrint2(cur->right);
+	cur->item.print(cout);
+	reverseInorderPrint2(cur->left);
+}
+
+void BST::InorderOutfile(){
+	if (root == NULL) return;// handle special case
+	else inOrderPrint2(root);// do normal process
+
+}
+
+void BST::InorderOufile2(BTNode *cur){
+
+	if (cur == NULL) return;
+	ofstream outfile;
+	outfile.open("student_info.txt");
+	if(!outfile.is_open()){
+		cout << "file is not opened!";
+		return;
+	}
+
+	inOrderPrint2(cur->left);
+	cur->item.print(outfile);
+	inOrderPrint2(cur->right);
+
+}
+void BST::reverseInorderOutfile(){
+	if (root == NULL) return;// handle special case
+	else inOrderPrint2(root);// do normal process
+}
+void BST::reverseInorderOufile2(BTNode *cur){
+
+	if (cur == NULL) return;
+	ofstream outfile;
+	outfile.open("student_info.txt");
+	if(!outfile.is_open()){
+		cout << "file is not opened!";
+		return;
+	}
+
+	inOrderPrint2(cur->right);
+	cur->item.print(outfile);
+	inOrderPrint2(cur->left);
+
+}
+bool BST::CloneSubtree(BST t1,type item){
+	BTNode *cur;
+	if(t1.empty()) return false;
+	if(root == NULL){
+		cur = t1.findnode(t1.root,item);
+
+
+	}
+	
+
+
+
+}
+BTNode* BST::findnode(BTNode *cur,type item){
+	if (cur->item.compare2(item)){
+		return cur;
+	}
+	else if(cur->item.compare1(item)){
+		findnode(cur->left,item);
+	}
+	else findnode(cur->right,item);
+}
+void BST::cloneNode(BTNode *cur){
+	insert2(BTNode *cur, BTNode *newNode)
+
+	
+}
+
+
+
+
+
 
 
 

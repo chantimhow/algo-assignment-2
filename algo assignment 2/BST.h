@@ -3,6 +3,8 @@
 
 #include	"BTNode.h"
 #include	"Queue.h"
+#include "Student.h"
+#include <cstdint>
 
 
 struct BST {
@@ -44,8 +46,18 @@ struct BST {
 		// sample operation (extra functions) - same as BT
 		int countNode();		// count number of tree nodes
 		bool findGrandsons(type);	// find the grandsons of an input father item
-		bool display();
 
+		// assignment functions
+		bool display(int,int);
+		void reverseInorderPrint();
+		void reverseInorderPrint2(BTNode *);
+		void InorderOutfile();
+		void InorderOufile2(BTNode *);
+		void reverseInorderOutfile();
+		void reverseInorderOufile2(BTNode *);
+		bool CloneSubtree(BST,type item);
+		BTNode *findnode(BTNode *cur,type item);
+		void cloneNode();
 		
 	
 };
