@@ -261,6 +261,7 @@ void BST::case3(BTNode *cur) {
 }
 
 bool BST::display(int order,int source){
+	if(root==NULL) return false;
 	switch(order){
 		case 1:
 		switch(source){
@@ -284,6 +285,7 @@ bool BST::display(int order,int source){
 		}
 
 	}
+	return true;
 }
 
 
@@ -346,15 +348,16 @@ bool BST::CloneSubtree(BST t1,type item){
 	if(t1.empty()) return false;
 	if(root == NULL){
 		cur = t1.findnode(t1.root,item);
-
-
+		cloneNode(cur);
 	}
+	else return false;
 	
 
 
 
 }
 BTNode* BST::findnode(BTNode *cur,type item){
+	if(cur==NULL)return NULL;
 	if (cur->item.compare2(item)){
 		return cur;
 	}
@@ -364,9 +367,9 @@ BTNode* BST::findnode(BTNode *cur,type item){
 	else findnode(cur->right,item);
 }
 void BST::cloneNode(BTNode *cur){
-	insert2(BTNode *cur, BTNode *newNode)
-
-	
+	insert(cur->item);
+	cloneNode(cur->left);
+	cloneNode(cur->right);
 }
 
 

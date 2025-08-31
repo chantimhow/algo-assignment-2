@@ -57,7 +57,7 @@ struct BST {
 		void reverseInorderOufile2(BTNode *);
 		bool CloneSubtree(BST,type item);
 		BTNode *findnode(BTNode *cur,type item);
-		void cloneNode();
+		void cloneNode(BTNode *);
 		
 	
 };
