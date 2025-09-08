@@ -314,7 +314,7 @@ void BST::InorderOufile2(BTNode *cur){
 
 	if (cur == NULL) return;
 	ofstream outfile;
-	outfile.open("student_info.txt");
+	outfile.open("student_info.txt",ios::app);
 	if(!outfile.is_open()){
 		cout << "file is not opened!";
 		return;
@@ -333,7 +333,7 @@ void BST::reverseInorderOufile2(BTNode *cur){
 
 	if (cur == NULL) return;
 	ofstream outfile;
-	outfile.open("student_info.txt");
+	outfile.open("student_info.txt",ios::app);
 	if(!outfile.is_open()){
 		cout << "file is not opened!"; 
 		return;
