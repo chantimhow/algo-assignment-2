@@ -58,6 +58,9 @@ struct BST {
 		bool CloneSubtree(BST,type item);
 		BTNode *findnode(BTNode *cur,type item);
 		void cloneNode(BTNode *);
+		int height(BTNode*);
+		void printLevel(BTNode*, int);
+		bool deepestNodes();
 		
 	
 };

@@ -266,22 +266,23 @@ bool BST::display(int order,int source){
 		case 1:
 		switch(source){
 			case 1:
-			inOrderPrint();
-			break;
+				inOrderPrint();
+				break;
 
 			case 2:
-			reverseInorderPrint();
-			break;
+				InorderOutfile();
+				break;
+			
 		}
+		break;
 		case 2:
 		switch(source){
 			case 1:
-			InorderOutfile();
-			break;
+				reverseInorderPrint();
+				break;
 			case 2:
-			reverseInorderOutfile();
-			
-			break;
+				reverseInorderOutfile();
+				break;
 		}
 
 	}
@@ -305,7 +306,7 @@ void BST::reverseInorderPrint2(BTNode *cur){
 
 void BST::InorderOutfile(){
 	if (root == NULL) return;// handle special case
-	else inOrderPrint2(root);// do normal process
+	else InorderOufile2(root);// do normal process
 
 }
 
@@ -319,14 +320,14 @@ void BST::InorderOufile2(BTNode *cur){
 		return;
 	}
 
-	inOrderPrint2(cur->left);
+	InorderOufile2(cur->left);
 	cur->item.print(outfile);
-	inOrderPrint2(cur->right);
+	InorderOufile2(cur->right);
 
 }
 void BST::reverseInorderOutfile(){
 	if (root == NULL) return;// handle special case
-	else inOrderPrint2(root);// do normal process
+	else reverseInorderOufile2(root);// do normal process
 }
 void BST::reverseInorderOufile2(BTNode *cur){
 
@@ -334,13 +335,13 @@ void BST::reverseInorderOufile2(BTNode *cur){
 	ofstream outfile;
 	outfile.open("student_info.txt");
 	if(!outfile.is_open()){
-		cout << "file is not opened!";
+		cout << "file is not opened!"; 
 		return;
 	}
 
-	inOrderPrint2(cur->right);
+	reverseInorderOufile2(cur->right);
 	cur->item.print(outfile);
-	inOrderPrint2(cur->left);
+	reverseInorderOufile2(cur->left);
 
 }
 bool BST::CloneSubtree(BST t1,type item){
@@ -370,6 +371,31 @@ void BST::cloneNode(BTNode *cur){
 	insert(cur->item);
 	cloneNode(cur->left);
 	cloneNode(cur->right);
+}
+//deepest nodes
+int BST::height(BTNode* cur) {
+	if (cur == NULL) return 0;
+	return 1 + max(height(cur->left), height(cur->right));
+}
+
+void BST::printLevel(BTNode* cur, int level) {
+	if (cur == NULL) return;
+	if (level == 1) {
+		cout << cur->item.getID() << " ";  // only print Student ID
+	}
+	else {
+		printLevel(cur->left, level - 1);
+		printLevel(cur->right, level - 1);
+	}
+}
+bool BST::deepestNodes() {
+	if (root == NULL) return false;  // empty tree
+
+	int h = height(root);
+	cout << "Deepest nodes (Student IDs): ";
+	printLevel(root, h);
+	cout << endl;
+	return true;
 }
 
 

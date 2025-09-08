@@ -1,3 +1,4 @@
+#define		_CRT_SECURE_NO_WARNINGS
 #include <iostream>
 
 #include "Student.h"
@@ -19,7 +20,7 @@ Student::Student()
 }
 
 
-void Student::print(ostream &out)
+void Student::print(ostream& out)
 {
 	out << "\nName: " << name;
 	out << "\nID: " << id;
@@ -56,4 +57,8 @@ bool Student::compare3(int id2)
 	if (id == id2)
 		return true;
 	return false;
+}
+
+int Student::getID() {
+	return id;
 }

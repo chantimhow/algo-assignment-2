@@ -123,19 +123,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Z:\My Drive\SEM 3\Algorithm\Assingment\Assignment 2\Questions_Assignment_2_updated_\Questions_Assignment_2\Questions_Assignment 2\Questions\Source Codes\app.cpp" />
-    <ClCompile Include="Z:\My Drive\SEM 3\Algorithm\Assingment\Assignment 2\Questions_Assignment_2_updated_\Questions_Assignment_2\Questions_Assignment 2\Questions\Source Codes\BST.cpp" />
-    <ClCompile Include="Z:\My Drive\SEM 3\Algorithm\Assingment\Assignment 2\Questions_Assignment_2_updated_\Questions_Assignment_2\Questions_Assignment 2\Questions\Source Codes\BTNode.cpp" />
-    <ClCompile Include="Z:\My Drive\SEM 3\Algorithm\Assingment\Assignment 2\Questions_Assignment_2_updated_\Questions_Assignment_2\Questions_Assignment 2\Questions\Source Codes\Node.cpp" />
-    <ClCompile Include="Z:\My Drive\SEM 3\Algorithm\Assingment\Assignment 2\Questions_Assignment_2_updated_\Questions_Assignment_2\Questions_Assignment 2\Questions\Source Codes\Queue.cpp" />
-    <ClCompile Include="Z:\My Drive\SEM 3\Algorithm\Assingment\Assignment 2\Questions_Assignment_2_updated_\Questions_Assignment_2\Questions_Assignment 2\Questions\Source Codes\Student.cpp" />
+    <ClCompile Include="app.cpp" />
+    <ClCompile Include="BST.cpp" />
+    <ClCompile Include="BTNode.cpp" />
+    <ClCompile Include="Node.cpp" />
+    <ClCompile Include="Queue.cpp" />
+    <ClCompile Include="Student.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Z:\My Drive\SEM 3\Algorithm\Assingment\Assignment 2\Questions_Assignment_2_updated_\Questions_Assignment_2\Questions_Assignment 2\Questions\Source Codes\BST.h" />
-    <ClInclude Include="Z:\My Drive\SEM 3\Algorithm\Assingment\Assignment 2\Questions_Assignment_2_updated_\Questions_Assignment_2\Questions_Assignment 2\Questions\Source Codes\BTNode.h" />
-    <ClInclude Include="Z:\My Drive\SEM 3\Algorithm\Assingment\Assignment 2\Questions_Assignment_2_updated_\Questions_Assignment_2\Questions_Assignment 2\Questions\Source Codes\Node.h" />
-    <ClInclude Include="Z:\My Drive\SEM 3\Algorithm\Assingment\Assignment 2\Questions_Assignment_2_updated_\Questions_Assignment_2\Questions_Assignment 2\Questions\Source Codes\Queue.h" />
-    <ClInclude Include="Z:\My Drive\SEM 3\Algorithm\Assingment\Assignment 2\Questions_Assignment_2_updated_\Questions_Assignment_2\Questions_Assignment 2\Questions\Source Codes\Student.h" />
+    <ClInclude Include="BST.h" />
+    <ClInclude Include="BTNode.h" />
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="Queue.h" />
+    <ClInclude Include="Student.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="student.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -15,40 +15,45 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Z:\My Drive\SEM 3\Algorithm\Assingment\Assignment 2\Questions_Assignment_2_updated_\Questions_Assignment_2\Questions_Assignment 2\Questions\Source Codes\app.cpp">
+    <ClCompile Include="app.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Z:\My Drive\SEM 3\Algorithm\Assingment\Assignment 2\Questions_Assignment_2_updated_\Questions_Assignment_2\Questions_Assignment 2\Questions\Source Codes\BST.cpp">
+    <ClCompile Include="BST.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Z:\My Drive\SEM 3\Algorithm\Assingment\Assignment 2\Questions_Assignment_2_updated_\Questions_Assignment_2\Questions_Assignment 2\Questions\Source Codes\BTNode.cpp">
+    <ClCompile Include="BTNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Z:\My Drive\SEM 3\Algorithm\Assingment\Assignment 2\Questions_Assignment_2_updated_\Questions_Assignment_2\Questions_Assignment 2\Questions\Source Codes\Node.cpp">
+    <ClCompile Include="Node.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Z:\My Drive\SEM 3\Algorithm\Assingment\Assignment 2\Questions_Assignment_2_updated_\Questions_Assignment_2\Questions_Assignment 2\Questions\Source Codes\Queue.cpp">
+    <ClCompile Include="Queue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Z:\My Drive\SEM 3\Algorithm\Assingment\Assignment 2\Questions_Assignment_2_updated_\Questions_Assignment_2\Questions_Assignment 2\Questions\Source Codes\Student.cpp">
+    <ClCompile Include="Student.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Z:\My Drive\SEM 3\Algorithm\Assingment\Assignment 2\Questions_Assignment_2_updated_\Questions_Assignment_2\Questions_Assignment 2\Questions\Source Codes\BST.h">
+    <ClInclude Include="Student.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Z:\My Drive\SEM 3\Algorithm\Assingment\Assignment 2\Questions_Assignment_2_updated_\Questions_Assignment_2\Questions_Assignment 2\Questions\Source Codes\BTNode.h">
+    <ClInclude Include="BTNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Z:\My Drive\SEM 3\Algorithm\Assingment\Assignment 2\Questions_Assignment_2_updated_\Questions_Assignment_2\Questions_Assignment 2\Questions\Source Codes\Node.h">
+    <ClInclude Include="Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Z:\My Drive\SEM 3\Algorithm\Assingment\Assignment 2\Questions_Assignment_2_updated_\Questions_Assignment_2\Questions_Assignment 2\Questions\Source Codes\Queue.h">
+    <ClInclude Include="Queue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Z:\My Drive\SEM 3\Algorithm\Assingment\Assignment 2\Questions_Assignment_2_updated_\Questions_Assignment_2\Questions_Assignment 2\Questions\Source Codes\Student.h">
+    <ClInclude Include="BST.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="student.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
