@@ -52,15 +52,19 @@ struct BST {
 		void reverseInorderPrint();
 		void reverseInorderPrint2(BTNode *);
 		void InorderOutfile();
-		void InorderOufile2(BTNode *);
+		void InorderOufile2(BTNode *,ofstream &);
 		void reverseInorderOutfile();
-		void reverseInorderOufile2(BTNode *);
+		void reverseInorderOufile2(BTNode *,ofstream &);
 		bool CloneSubtree(BST,type item);
 		BTNode *findnode(BTNode *cur,type item);
 		void cloneNode(BTNode *);
 		int height(BTNode*);
 		void printLevel(BTNode*, int);
 		bool deepestNodes();
+		bool printLevelNodes();
+		bool printPath();
+		void printPathRecurs(BTNode* cur, type path[], int depth);
+
 		
 	
 };

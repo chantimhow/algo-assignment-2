@@ -14,7 +14,9 @@ bool readFile(const char*, BST*);
 int menu();
 
 int main() {
-    BST t1;
+    BST t1, clonet1;
+    type studentquery;
+
     int choice;
     do {
         choice = menu();
@@ -41,17 +43,18 @@ int main() {
             cout << "2.Output to File" << endl;
             cin >> outputlocation;
             t1.display(order, outputlocation);
-            
-            
             break;
         case 4:
-            //Clone subtree
+            clonet1 = BST();
+            cout << "Enter ID: ";
+            cin >> studentquery.id;
+            if (!clonet1.CloneSubtree(t1, studentquery)) cout << "cannot clone sub tree!" << endl;
             break;
         case 5:
-            //print level nodes
+            if(!t1.printLevelNodes()) cout << "unable to print!" << endl;
             break;
         case 6:
-            //Print path
+            if(!t1.printPath()) cout << "unable to print!" << endl;
             break;
 
         case 7:

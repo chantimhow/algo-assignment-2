@@ -306,52 +306,77 @@ void BST::reverseInorderPrint2(BTNode *cur){
 
 void BST::InorderOutfile(){
 	if (root == NULL) return;// handle special case
-	else InorderOufile2(root);// do normal process
-
+	else {
+		ofstream outfile;
+		outfile.open("student_info.txt", ios::app);
+		if (!outfile.is_open()) {
+			cout << "file is not open";
+			return;
+		}
+		InorderOufile2(root,outfile);// do normal process
+		outfile.close();
+	}
 }
 
-void BST::InorderOufile2(BTNode *cur){
-
-	if (cur == NULL) return;
-	ofstream outfile;
-	outfile.open("student_info.txt",ios::app);
-	if(!outfile.is_open()){
-		cout << "file is not opened!";
+void BST::InorderOufile2(BTNode *cur,ofstream &outfile){
+	if (cur == NULL) {
 		return;
 	}
-
-	InorderOufile2(cur->left);
+	
+	InorderOufile2(cur->left,outfile);
 	cur->item.print(outfile);
-	InorderOufile2(cur->right);
+	InorderOufile2(cur->right,outfile);
 
 }
 void BST::reverseInorderOutfile(){
 	if (root == NULL) return;// handle special case
-	else reverseInorderOufile2(root);// do normal process
-}
-void BST::reverseInorderOufile2(BTNode *cur){
-
-	if (cur == NULL) return;
-	ofstream outfile;
-	outfile.open("student_info.txt",ios::app);
-	if(!outfile.is_open()){
-		cout << "file is not opened!"; 
-		return;
+	else {
+		ofstream outfile;
+		outfile.open("student_info.txt", ios::app);
+		if (!outfile.is_open()) {
+			cout << "file is not open";
+			return;
+		}
+		reverseInorderOufile2(root, outfile);
+		outfile.close();
 	}
 
-	reverseInorderOufile2(cur->right);
+}
+void BST::reverseInorderOufile2(BTNode *cur,ofstream &outfile){
+
+	if (cur == NULL) {
+		return;
+	}
+	reverseInorderOufile2(cur->right,outfile);
 	cur->item.print(outfile);
-	reverseInorderOufile2(cur->left);
+	reverseInorderOufile2(cur->left,outfile);
 
 }
 bool BST::CloneSubtree(BST t1,type item){
 	BTNode *cur;
-	if(t1.empty()) return false;
+	if (t1.empty()) {
+		cout << "the original BST is empty!" << endl;
+		return false;
+	}
 	if(root == NULL){
 		cur = t1.findnode(t1.root,item);
+		if (cur == NULL) {
+			cout << "cannot find id " << item.id << endl;
+			return false;
+		}
 		cloneNode(cur);
+		cout << "Original Binary Search Tree:" << endl;
+		cout << "____________________________" << endl;
+		t1.preOrderPrint();
+		cout << "Cloned Binary Search Tree:" << endl;
+		cout << "____________________________" << endl;
+		preOrderPrint();
+		return true;
 	}
-	else return false;
+	else {
+		cout << "Subtree is not empty for cloning!";
+		return false;
+	}
 	
 
 
@@ -368,6 +393,7 @@ BTNode* BST::findnode(BTNode *cur,type item){
 	else findnode(cur->right,item);
 }
 void BST::cloneNode(BTNode *cur){
+	if (cur == NULL) return;
 	insert(cur->item);
 	cloneNode(cur->left);
 	cloneNode(cur->right);
@@ -396,6 +422,107 @@ bool BST::deepestNodes() {
 	printLevel(root, h);
 	cout << endl;
 	return true;
+}
+
+bool BST::printLevelNodes()
+{
+	if (root == NULL)
+	{
+		cout << "There is nothing in the tree! \n ";
+		return false;
+	}
+
+	int lvl = 1, currLvlNode = 1, nextLvlNode = 0;
+	Queue p;
+
+	p.enqueue(root); //create a queue to store the tree root.
+
+	if (p.empty())
+	{
+		cout << "The tree is empty!\n";
+		return false;
+
+	}
+
+	while (!p.empty())
+	{
+		cout << "Level " << currLvlNode << "nodes: ";
+
+		for (int i = 0; i < currLvlNode; i++)
+		{
+			BTNode* cur;
+			p.dequeue(cur); //take out the node and record it to cur.
+
+			cout << cur->item.id;
+
+			if (i < currLvlNode - 1)
+				cout << " ";
+
+			if (cur->left != NULL)
+			{
+				p.enqueue(cur->left);
+				nextLvlNode++;       // count how many node at next lvl.
+			}
+			if (cur->right != NULL)
+			{
+				p.enqueue(cur->right);
+				nextLvlNode++;
+			}
+		}
+
+		lvl++;
+		currLvlNode = nextLvlNode;
+		nextLvlNode = 0;
+		cout << endl;
+	}
+	return true;
+}
+
+
+
+
+
+
+bool BST::printPath()
+{
+	if (root == NULL)
+	{
+		cout << "There is nothing in the tree! \n ";
+		return false;
+	}
+	cout << "Below are all the external paths for the tree: \n\n";
+	type path[100];
+	printPathRecurs(root, path, 0);
+	return true;
+
+}
+
+void BST::printPathRecurs(BTNode* cur, type path[], int depth)
+{
+	path[depth] = cur->item;
+
+
+	//find leaf node and print it when there is no more leaf node.
+	if (cur->left == NULL && cur->right == NULL)
+	{
+		for (int i = 0; i <= depth; i++)
+		{
+			cout << path[i].id;
+			if (i < depth)
+			{
+				cout << " "; //empty space between the student id.
+			}
+		}
+		cout << endl;
+	}
+	else
+	{
+		//recursive function to get all the leaf node.
+		printPathRecurs(cur->left, path, depth + 1);
+		printPathRecurs(cur->right, path, depth + 1);
+
+	}
+
 }
 
 
