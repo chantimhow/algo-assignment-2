@@ -446,7 +446,7 @@ bool BST::printLevelNodes()
 
 	while (!p.empty())
 	{
-		cout << "Level " << currLvlNode << "nodes: ";
+		cout << "Level " << lvl << " nodes: ";
 
 		for (int i = 0; i < currLvlNode; i++)
 		{
@@ -499,6 +499,7 @@ bool BST::printPath()
 
 void BST::printPathRecurs(BTNode* cur, type path[], int depth)
 {
+
 	path[depth] = cur->item;
 
 
@@ -518,12 +519,28 @@ void BST::printPathRecurs(BTNode* cur, type path[], int depth)
 	else
 	{
 		//recursive function to get all the leaf node.
-		printPathRecurs(cur->left, path, depth + 1);
-		printPathRecurs(cur->right, path, depth + 1);
+		if (cur->left != NULL)
+			printPathRecurs(cur->left, path, depth + 1);
+		if (cur->right != NULL)
+			printPathRecurs(cur->right, path, depth + 1);
 
 	}
 
 }
+
+bool BST::find(int id) {
+	BTNode* current = root;
+	while (current != nullptr) {
+		if (id == current->item.id) return true;
+		else if (id < current->item.id)
+			current = current->left;
+		else
+			current = current->right;
+	}
+	return false;
+}
+
+
 
 
 

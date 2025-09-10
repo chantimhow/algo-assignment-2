@@ -150,8 +150,12 @@ bool readFile(const char* filename, BST* t1) {
 
         // Once we have read all 7 fields -> insert into BST
         if (linepos == 7) {
-            if (t1->insert(s)) {
-                count++;
+            if (!t1->find(s.id)) {
+                if (t1->insert(s))
+                    count++;
+            }
+            else {
+                cout << "Duplicate student id exist!(Student id: " << s.id << ")" << endl;
             }
             // reset for next student
             s = Student();

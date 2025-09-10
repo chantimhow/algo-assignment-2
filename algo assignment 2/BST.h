@@ -64,6 +64,9 @@ struct BST {
 		bool printLevelNodes();
 		bool printPath();
 		void printPathRecurs(BTNode* cur, type path[], int depth);
+		bool find(int); //find duplicate student id
+
+
 
 		
 	
